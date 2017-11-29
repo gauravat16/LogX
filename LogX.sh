@@ -202,8 +202,9 @@ local log=$2
 local colour_bg=$3
 local caller_fn=$4
 local log_type=$5
-local caller_file=$(echo "$(echo "$caller_fn"| cut -d " " -f2)" | cut -d "." -f1)
+local caller_file=$(echo $(echo "$caller_fn"| cut -d " " -f2) | cut -d "/" -f2)
 local caller_line_number=$(echo "$caller_fn"| cut -d " " -f1)
+
 
 local time_stamp=$(date +"%Y-%m-%d::%H:%M:%S")
 local log_line="$log_type:$time_stamp:$caller_file:$caller_line_number:$tag:$log"
