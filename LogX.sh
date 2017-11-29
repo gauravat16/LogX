@@ -144,6 +144,9 @@ load_vars(){
 							"ScriptName" )
 								LOG_NAME="$value"
 								;;
+							"options" )
+								options="$value"
+								;;
 
 						esac			
 
@@ -244,8 +247,9 @@ log_basic "$tag" "$log" "$On_IRed" "$caller_fn" "ERROR"
 
 log_init(){
 	
-	set_options
 	load_vars $1
+	set_options
+
 	
 }
 
