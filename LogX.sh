@@ -120,12 +120,12 @@ load_vars(){
 	LOG_PROPERTIES="$1"
 	if [[ ! -f "$LOG_PROPERTIES" ]]; then
 		NO_LOG="-nolog"
-		log_error "LOGX" "$LOG_PROPERTIES is missing."
-		exit
+		log_error $LOGX-INTERNAL-LOG "$LOG_PROPERTIES is missing."
+		
 		
 	fi
 
-	while read -r line; do
+	while IFS= read -r line || [[ -n "$line" ]]; do
 		if [[ ! -z "$line" ]]; then
 			local key=$(echo "$line" | cut -d "=" -f1)			
 			local value=$(echo "$line" | cut -d "=" -f2)
