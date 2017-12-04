@@ -23,6 +23,8 @@ And create the properties file with the following entries
         CompressLogs=<compression of old logs : true or false>
 
         options=<options for LogX>
+        
+        DeleteAfter=<Delete old logs after n days>
 
 #### Following options are available
 
